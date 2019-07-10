@@ -1,0 +1,803 @@
+html{
+    height: 100%;
+}
+
+*, *::after, *::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+    *::after, *::before {
+        content: '';
+    }
+
+a:link, a:visited {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* This width range is for smartphone (tr: akıllı telefonlar için) */
+@media (max-width: 767px) { 
+  .container { width: auto; }
+  /* your other css codes */
+}
+
+/* This width range is for tablet (tr: tabletler için) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .container { width: 730px; }
+  /* your other css codes */
+}
+
+/* This width range is for medium pc screens (tr: orta ekranlı pc için) */
+@media (min-width: 992px) and (max-width: 1199px) {
+body {
+    font-size: 1.6rem;
+    font-family: "PT Sans", sans-serif;
+    color: #D42127;
+    background-color: #ffffff; /* changed from #EEEEEE */
+    height: 100%;
+}
+
+    body::after {
+        /* dark overlay layer - visible when we fire .cd-quick-view */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(71, 55, 78, 0.8);
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+        -moz-transition: opacity .3s 0s, visibility 0s .3s;
+        transition: opacity .3s 0s, visibility 0s .3s;
+    }
+
+@font-face {
+  font-family: "Dosis-Regular";
+  src: url("/fonts/Dosis-Regular.eot");
+  src: url("/fonts/Dosis-Regular.eot?#iefix") format("embedded-opentype"),
+       url("/fonts/Dosis-Regular.ttf") format("truetype"),
+       url("/fonts/Dosis-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dosis-SemiBold";
+  src: url("/fonts/Dosis-SemiBold.eot");
+  src: url("/fonts/Dosis-SemiBold.eot?#iefix") format("embedded-opentype"),
+       url("/fonts/Dosis-SemiBold.ttf") format("truetype"),
+       url("/fonts/Dosis-SemiBold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  font-family: "Varela Round";
+  background: #73605B;
+}
+
+#header {
+  background: url('images/background.jpg') no-repeat center top;
+  background-size: cover;
+  position: fixed;
+  height: 90%;
+  bottom: 10%;
+  right: 0;
+  left: 0;
+  top: 0;
+  
+  .center {
+    background: rgba(0,0,0,0.25);
+    text-align: center;
+    position: absolute;
+    color: #FFFFFF;
+    color: #F5F7FA;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    
+    .middle {
+      position: absolute;
+      margin-top: -8em;
+      right: 0;
+      left: 0;
+      top: 50%;
+
+      h1 {
+        font-family: "Lusitana";
+        font-weight: normal;
+        line-height: 1em;
+        font-size: 11em;
+        margin: 0;
+      }
+      span {
+        line-height: 5em;
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+.navbar{
+    margin-top: 20px;
+    height: 40px;
+    width: 100%;
+    background-color: #363237;
+    border: 2px solid #73605B;
+    opacity: 0.7;
+}
+
+ul.menu{
+    display: block;
+    width: 50%;
+    list-style: none;
+    text-decoration-line: none;
+    color:#fff;
+    float: left;
+    right: 0;
+    position: absolute;
+    vertical-align: middle;
+    margin: 0.5%;
+   
+}
+
+ul.menu >li{
+    margin-right: 8%;
+    float: left;
+    position: relative;
+    display: block;
+
+    
+}
+
+ul.menu >li >a{
+    
+    list-style: none;
+    text-decoration-line: none;
+    color:#fff;
+    float: left;
+    font-family: "Dosis-Regular";
+    font-size: 25px;
+}
+
+ul.menu ul{
+    display: none;
+    margin-top: 31px;
+    width: 150px;
+    background-color: #fff;
+    border: 1px solid;
+    padding-left: 0px;
+    vertical-align: middle;
+    position: absolute;
+    transition: 250ms all;
+    z-index: 99999;
+    
+}
+
+ul.menu ul li {
+    display: block;
+    padding: 7px 12px;
+    color: #363237;
+    background: rgba(244, 244, 227, 0.8);
+    font-family: "Dosis-Regular";
+    font-size: 23px;
+    border: 1px solid #73605B;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+ul.menu li:hover ul{
+    display: block;
+    z-index: 99999;
+
+}
+
+ul.menu ul li a{
+    text-decoration: none;
+    z-index: 99999;
+}
+
+$pageTopDecrease: 20px;
+$hrBoxBorderLength: 40px;
+$hrBgColor: #48CFAD;
+$hrColor: #FFFFFF;
+$hrSize: 5px;
+
+#pageHr {
+  background: $hrColor;
+  position: relative;
+  height: $hrSize;
+  display: block;
+  right: 0px;
+  left: 0px;
+  top: 90%;
+  z-index: 1;
+
+  > i {
+    margin: -($hrBoxBorderLength/2+$hrSize);
+    border: $hrSize solid $hrColor;
+    height: $hrBoxBorderLength;
+    width: $hrBoxBorderLength;
+    background: $hrBgColor;
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    @include transform(rotate(45deg));
+    
+    > i {
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      line-height: $hrBoxBorderLength*0.92;
+      font-size: $hrBoxBorderLength/2;
+      height: $hrBoxBorderLength;
+      width: $hrBoxBorderLength;
+      text-align: center;
+      position: absolute;
+      color: $hrColor;
+      display: block;
+      @include transform(rotate(-45deg));
+    }
+  }
+}
+
+#page {
+  //border-top: $pageTopDecrease solid $hrColor;
+  background: #D09683;
+  position: relative;
+  //margin-top: -($pageTopDecrease);
+  height: 200%;
+  top: 90%;
+	padding: 10% 40px;
+	text-align: center;
+    overflow: hidden;
+    z-index: 99;
+	a {
+		color: #fff;
+	}
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container div{
+  margin: 10px;
+  padding: 20px;
+}
+
+.product{
+    border:3px solid #d0bd83;
+
+    
+}
+
+.product img{
+    width: 100%;
+}
+
+.product p{
+    font-family: "Dosis-SemiBold";
+    font-style: italic;
+    color:  	#FFF8DC;
+    font-size: 20px;
+}
+
+
+        .footer{
+            position: absolute;
+            height: 30%;
+            width: 100%;
+            background-color: #2D4246;
+            z-index: 999;
+            position: absolute;
+            right: 0;
+            bottom: -200%;
+            left: 0;
+            clear:both;
+            overflow: hidden;
+        }
+
+        .column {
+          float: left;
+          width: 33.33%;
+          padding: 10px;
+          height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+
+
+        }
+
+        .column p{
+            color: #000000;
+            font-family: "Dosis-Regular";
+            font-size: 18px;
+            color: #808284;
+            font-size: 18px;
+        }
+
+        .column img{
+            height: 50%;
+        }
+
+        .social{
+            width: auto;
+            height: auto;
+        text-align: center;
+        }
+
+        .social a img{
+            width: 7%;
+            margin: 2%;
+        }
+
+        .info{
+            color: #000000;
+            font-family: "Dosis-Regular";
+            font-size: 18px;
+            bottom: 50%;
+            top: 50%;
+            margin-top: 4%;
+            color: #808284;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+
+        .info img{
+             width: 5%;
+            margin-right: 2%;
+            vertical-align: middle;
+        }
+
+/*ALTERNATIVE PAGES*/
+
+#pagealternative {
+  //border-top: $pageTopDecrease solid $hrColor;
+  background: #FFF8DC;
+  position: relative;
+  //margin-top: -($pageTopDecrease);
+  height: 260%;
+  top: 90%;
+	padding: 10% 40px;
+	text-align: center;
+    overflow: hidden;
+
+	a {
+		color: #fff;
+	}
+}
+
+    #pagealternative .product{
+    border:3px solid #363237;
+
+    
+}
+
+    #pagealternative .product p{
+    font-family: "Dosis-SemiBold";
+    font-style: italic;
+    color:  	#2D4246;
+    font-size: 20px;
+}
+
+.footeralternative{
+            position: absolute;
+            height: 30%;
+            width: 100%;
+            background-color: #2D4246;
+            z-index: 999;
+            position: absolute;
+            right: 0;
+            bottom: -260%;
+            left: 0;
+            clear:both;
+            overflow: hidden;
+        }
+
+    
+}
+
+/* This width range is for large pc screens (tr: geniş ekranlı pc için) */
+@media (min-width: 1200px) {
+
+    body {
+    font-size: 1.6rem;
+    font-family: "PT Sans", sans-serif;
+    color: #D42127;
+    background-color: #ffffff; /* changed from #EEEEEE */
+    height: 100%;
+}
+
+    body::after {
+        /* dark overlay layer - visible when we fire .cd-quick-view */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(71, 55, 78, 0.8);
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+        -moz-transition: opacity .3s 0s, visibility 0s .3s;
+        transition: opacity .3s 0s, visibility 0s .3s;
+    }
+
+@font-face {
+  font-family: "Dosis-Regular";
+  src: url("/fonts/Dosis-Regular.eot");
+  src: url("/fonts/Dosis-Regular.eot?#iefix") format("embedded-opentype"),
+       url("/fonts/Dosis-Regular.ttf") format("truetype"),
+       url("/fonts/Dosis-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dosis-SemiBold";
+  src: url("/fonts/Dosis-SemiBold.eot");
+  src: url("/fonts/Dosis-SemiBold.eot?#iefix") format("embedded-opentype"),
+       url("/fonts/Dosis-SemiBold.ttf") format("truetype"),
+       url("/fonts/Dosis-SemiBold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  font-family: "Varela Round";
+  background: #73605B;
+}
+
+#header {
+  background: url('images/background.jpg') no-repeat center top;
+  background-size: cover;
+  position: fixed;
+  height: 90%;
+  bottom: 10%;
+  right: 0;
+  left: 0;
+  top: 0;
+  
+  .center {
+    background: rgba(0,0,0,0.25);
+    text-align: center;
+    position: absolute;
+    color: #FFFFFF;
+    color: #F5F7FA;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    
+    .middle {
+      position: absolute;
+      margin-top: -8em;
+      right: 0;
+      left: 0;
+      top: 50%;
+
+      h1 {
+        font-family: "Lusitana";
+        font-weight: normal;
+        line-height: 1em;
+        font-size: 11em;
+        margin: 0;
+      }
+      span {
+        line-height: 5em;
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+.navbar{
+    margin-top: 20px;
+    height: 40px;
+    width: 100%;
+    background-color: #363237;
+    border: 2px solid #73605B;
+    opacity: 0.7;
+}
+
+ul.menu{
+    display: block;
+    width: 50%;
+    list-style: none;
+    text-decoration-line: none;
+    color:#fff;
+    float: left;
+    right: 0;
+    position: absolute;
+    vertical-align: middle;
+    margin: 0.5%;
+   
+}
+
+ul.menu >li{
+    margin-right: 8%;
+    float: left;
+    position: relative;
+    display: block;
+
+    
+}
+
+ul.menu >li >a{
+    
+    list-style: none;
+    text-decoration-line: none;
+    color:#fff;
+    float: left;
+    font-family: "Dosis-Regular";
+    font-size: 25px;
+}
+
+ul.menu ul{
+    display: none;
+    margin-top: 31px;
+    width: 150px;
+    background-color: #fff;
+    border: 1px solid;
+    padding-left: 0px;
+    vertical-align: middle;
+    position: absolute;
+    transition: 250ms all;
+    z-index: 99999;
+    
+}
+
+ul.menu ul li {
+    display: block;
+    padding: 7px 12px;
+    color: #363237;
+    background: rgba(244, 244, 227, 0.8);
+    font-family: "Dosis-Regular";
+    font-size: 23px;
+    border: 1px solid #73605B;
+    cursor: pointer;
+    z-index: 99999;
+}
+
+ul.menu li:hover ul{
+    display: block;
+    z-index: 99999;
+
+}
+
+ul.menu ul li a{
+    text-decoration: none;
+    z-index: 99999;
+}
+
+$pageTopDecrease: 20px;
+$hrBoxBorderLength: 40px;
+$hrBgColor: #48CFAD;
+$hrColor: #FFFFFF;
+$hrSize: 5px;
+
+#pageHr {
+  background: $hrColor;
+  position: relative;
+  height: $hrSize;
+  display: block;
+  right: 0px;
+  left: 0px;
+  top: 90%;
+  z-index: 1;
+
+  > i {
+    margin: -($hrBoxBorderLength/2+$hrSize);
+    border: $hrSize solid $hrColor;
+    height: $hrBoxBorderLength;
+    width: $hrBoxBorderLength;
+    background: $hrBgColor;
+    position: absolute;
+    display: block;
+    left: 50%;
+    top: 50%;
+    @include transform(rotate(45deg));
+    
+    > i {
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      line-height: $hrBoxBorderLength*0.92;
+      font-size: $hrBoxBorderLength/2;
+      height: $hrBoxBorderLength;
+      width: $hrBoxBorderLength;
+      text-align: center;
+      position: absolute;
+      color: $hrColor;
+      display: block;
+      @include transform(rotate(-45deg));
+    }
+  }
+}
+
+#page {
+  //border-top: $pageTopDecrease solid $hrColor;
+  background: #D09683;
+  position: relative;
+  //margin-top: -($pageTopDecrease);
+  height: 200%;
+  top: 90%;
+	padding: 10% 40px;
+	text-align: center;
+    overflow: hidden;
+    z-index: 99;
+	a {
+		color: #fff;
+	}
+}
+
+.flex-container {
+  display: flex;
+}
+
+.flex-container div{
+  margin: 10px;
+  padding: 20px;
+}
+
+.product{
+    border:3px solid #d0bd83;
+
+    
+}
+
+.product img{
+    width: 100%;
+}
+
+.product p{
+    font-family: "Dosis-SemiBold";
+    font-style: italic;
+    color:  	#FFF8DC;
+    font-size: 20px;
+}
+
+
+        .footer{
+            position: absolute;
+            height: 30%;
+            width: 100%;
+            background-color: #2D4246;
+            z-index: 999;
+            position: absolute;
+            right: 0;
+            bottom: -200%;
+            left: 0;
+            clear:both;
+            overflow: hidden;
+        }
+
+        .column {
+          float: left;
+          width: 33.33%;
+          padding: 10px;
+          height: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+
+
+        }
+
+        .column p{
+            color: #000000;
+            font-family: "Dosis-Regular";
+            font-size: 18px;
+            color: #808284;
+            font-size: 18px;
+        }
+
+        .column img{
+            height: 50%;
+        }
+
+        .social{
+            width: auto;
+            height: auto;
+        text-align: center;
+        }
+
+        .social a img{
+            width: 7%;
+            margin: 2%;
+        }
+
+        .info{
+            color: #000000;
+            font-family: "Dosis-Regular";
+            font-size: 18px;
+            bottom: 50%;
+            top: 50%;
+            margin-top: 4%;
+            color: #808284;
+            vertical-align: middle;
+            font-size: 20px;
+        }
+
+        .info img{
+             width: 5%;
+            margin-right: 2%;
+            vertical-align: middle;
+        }
+
+/*ALTERNATIVE PAGES*/
+
+#pagealternative {
+  //border-top: $pageTopDecrease solid $hrColor;
+  background: #FFF8DC;
+  position: relative;
+  //margin-top: -($pageTopDecrease);
+  height: 260%;
+  top: 90%;
+	padding: 10% 40px;
+	text-align: center;
+    overflow: hidden;
+
+	a {
+		color: #fff;
+	}
+}
+
+    #pagealternative .product{
+    border:3px solid #363237;
+
+    
+}
+
+    #pagealternative .product p{
+    font-family: "Dosis-SemiBold";
+    font-style: italic;
+    color:  	#2D4246;
+    font-size: 20px;
+}
+
+.footeralternative{
+            position: absolute;
+            height: 30%;
+            width: 100%;
+            background-color: #2D4246;
+            z-index: 999;
+            position: absolute;
+            right: 0;
+            bottom: -260%;
+            left: 0;
+            clear:both;
+            overflow: hidden;
+        }
+
+}
+
