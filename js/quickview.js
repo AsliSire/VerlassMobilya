@@ -215,7 +215,7 @@ jQuery(document).ready(function($){
 	}
 
     /* Stop page jumping when links are pressed */
-    $('a[href="#"]').live("click", function(e) {
+    $('a[href="#"]').on('click', 'a', function(e) {
          return false; // prevent default click action from happening!
          e.preventDefault(); // same thing as above
     });	

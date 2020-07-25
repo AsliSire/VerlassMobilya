@@ -54,6 +54,7 @@ a:link, a:visited {
   cursor: pointer;
   font-size: 14px;
   text-decoration: none;
+  text-align: center;
   color: #0e0e0e;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -347,9 +348,14 @@ body {
 .logo{text-align: center}
 .logo img{
     padding: 3%;
-        width: 25%;
+    width: 25%;
     }
-
+@media only screen and (max-width: 768px) {
+  .logo img{
+    padding: 3%;
+    width: 70%;
+  }
+}
 #cssmenu,
 #cssmenu ul,
 #cssmenu ul li,
@@ -601,11 +607,12 @@ body {
 
         .footer{
             position: relative;
-            height: 30%;
+            /* height: 30%; */
             width: 100%;
             background-color: #ffffff;
             z-index: 999;
             position: relative;
+            margin-top: 2em;
             right: 0;
             bottom: auto;
             left: 0;
